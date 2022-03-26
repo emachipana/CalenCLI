@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# select dates based on week
+
 def select_dates(events)
   events.select do |event|
     Date.parse(event['start_date']) == @actual_date
@@ -18,6 +20,8 @@ def print_menu
   puts '-'.colorize(mode: :bold, color: :blue) * 81
   puts 'list | create | show | update | delete | next | prev | clear | exit'.colorize(mode: :bold, color: :green)
 end
+
+# title colorized by eventss
 
 def title_colorized(type_event, title, id)
   case type_event

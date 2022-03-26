@@ -4,9 +4,13 @@ require 'date'
 require 'colorize'
 require_relative 'methods'
 
+# actual date starting monday of each week
+
 @actual_date = Date.today
 day = @actual_date.wday > 1 ? @actual_date.wday - 1 : 0
 @actual_date -= day
+
+# data of events 
 
 id = 0
 @events = [
@@ -110,6 +114,8 @@ id = 0
     'calendar' => 'web-dev' }
 ]
 
+# main flow
+
 def start
   options = 'list | create | show | update | delete | next | prev | clear | exit'.split(' | ')
   print_title
@@ -117,6 +123,9 @@ def start
   print_menu
   action = get_inputs(options)
   validation = true
+
+  # main loop
+
   until validation == false
     case action
     when 'list'
@@ -150,5 +159,7 @@ def start
     action = get_inputs(options)
   end
 end
+
+# start app
 
 start
