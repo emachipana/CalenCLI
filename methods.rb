@@ -42,6 +42,9 @@ end
 
 def list(events)
   i = 0
+  print " "*32
+  puts @actual_date.strftime('%a %d %b %Y').colorize(color: :yellow, mode: :bold)
+  puts "\n"
   events.each do |_event|
     puts "\n"
     print @actual_date.strftime('%a %b %d').colorize(color: :light_red, mode: :bold) unless i >= 7
